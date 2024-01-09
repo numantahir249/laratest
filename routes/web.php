@@ -4,7 +4,6 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,16 +34,18 @@ Route::put('/form', function (Request $request) {
         'content' => ['required'],
     ]);
 
+
+
     Message::create([
         'name' => $request->input('name'),
         'email' => $request->input('email'),
         'content' => $request->input('content'),
     ]);
 
-    return redirect()->route('thank-you-page');
+    return redirect()->route('thank-you');
 
 })->name('form');
 
 Route::get('/thank-you', function () {
-    return view('thankyou');
+    return view('thank-you');
 })->name('thank-you');
